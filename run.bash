@@ -49,9 +49,10 @@ get_node_app() {
         echo "Enter the git repo url (e.g. 'MyUsername/my-node-app')"
         read repo
         # If repo is not a valid git repo
-        if [ -z "$(git ls-remote --exit-code "$repo" &>/dev/null)" ]; then
-            echo "Invalid git repo"
-            repo=""
+        git ls-remote "$repo" > /dev/null 2>&1
+        if [ "$?" -ne 0 ]; then
+            echo "[ERROR] Unable to read from '$repo'"
+            exit 1;
         fi
     done
     cd ~
