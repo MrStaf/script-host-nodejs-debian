@@ -47,7 +47,7 @@ get_node_app() {
     flag=0
     # While repo does not contains a valid git repo
     while [ $flag == 0 ]; do
-        echo "Enter the git repo url (e.g. 'MyUsername/my-node-app')"
+        echo "Enter the git repo url (e.g. 'https://github.com/User/repo')"
         read repo
         # If repo is not a valid git repo
         git ls-remote "$repo" > /dev/null 2>&1
@@ -72,15 +72,15 @@ run_node_app() {
     # build the app
     npm run build
     # serve the app
-    npm run serve
+    npm run start
 }
 
 main() {
-    # update_system
-    # install_NPM
-    # install_Docker
-    # install_Docker_Compose
-    # run_Docker_Compose
+    update_system
+    install_NPM
+    install_Docker
+    install_Docker_Compose
+    run_Docker_Compose
     get_node_app
     run_node_app
 }
