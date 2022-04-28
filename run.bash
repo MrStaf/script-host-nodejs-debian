@@ -44,10 +44,15 @@ run_Docker_Compose() {
 
 get_node_app() {
     repo=""
-    while [$repo !=~ "/"]; do
-        # Prompt for the name of the github repo
-        echo "Enter the name of the github repo you want to clone (e.g. 'MyUsername/my-node-app'):"
+    # While repo does not contains a valid git repo
+    while [ -z "$repo" ]; do
+        echo "Enter the git repo url (e.g. 'MyUsername/my-node-app')"
         read repo
+        # If repo is not a valid git repo
+        if [ -z "$(git ls-remote --exit-code "$repo" &>/dev/null)" ]; then
+            echo "Invalid git repo"
+            repo=""
+        fi
     done
     cd ~
     # Clone the repo
