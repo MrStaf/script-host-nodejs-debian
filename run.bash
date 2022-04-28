@@ -53,7 +53,6 @@ get_node_app() {
         git ls-remote "$repo" > /dev/null 2>&1
         if [ "$?" -ne 0 ]; then
             echo "[ERROR] Unable to read from '$repo'"
-        fi
         else
             flag=1
         fi
