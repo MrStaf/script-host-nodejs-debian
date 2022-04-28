@@ -38,12 +38,11 @@ run_Docker_Compose() {
 
 get_node_app() {
     repo=""
-    do
-    {
+    while [[ $repo =~ "/" ] ]; do
         # Prompt for the name of the github repo
         echo "Enter the name of the github repo you want to clone (e.g. 'MyUsername/my-node-app'):"
         read repo
-    } while [[ $repo =~ "/" ] ]
+    done
     # Clone the repo
     git clone https://github.com/$repo
     # Create a variable for the directory name
