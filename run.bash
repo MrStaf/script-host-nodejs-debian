@@ -63,7 +63,7 @@ get_node_app() {
     # Create a variable for the directory name
     dir=$(echo $repo | cut -d'/' -f2)
     # Change to the directory
-    cd $dir
+    cd ~/$dir
     # Install NPM dependencies
     npm install
 }
