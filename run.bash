@@ -5,9 +5,9 @@ update_system() {
 }
 
 install_NPM () {
-    apt install curl git
+    apt install curl git -y
     curl -sL https://deb.nodesource.com/setup_16.x | bash -
-    apt install nodejs
+    apt install nodejs -y
 }
 
 install_Docker() {
@@ -15,7 +15,7 @@ install_Docker() {
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
+    lsb-release -y
     # Add Docker’s official GPG key
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo \
