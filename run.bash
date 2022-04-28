@@ -34,6 +34,12 @@ install_Docker_Compose() {
 
 run_Docker_Compose() {
     docker compose up -d
+    # Get ip V4 address
+    IP_ADDRESS=$(ip addr | grep 'state UP' -A2 | tail -n1 | awk '{print $2}' | cut -f1  -d'/')
+    echo Nginx Proxy Manager is running
+    echo go to //$IP_ADDRESS:81 and change the password, you can ignore later.
+    echo Email:    admin@example.com \n Password: changeme
+
 }
 
 get_node_app() {
