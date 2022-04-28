@@ -61,7 +61,7 @@ get_node_app() {
     # Clone the repo
     git clone $repo
     # Create a variable for the directory name
-    dir=$(echo $repo | cut -d'/' -f2)
+    dir=$(echo $repo | rev | cut -d"/" -f 1 | rev)
     # Change to the directory
     cd ~/$dir
     # Install NPM dependencies
