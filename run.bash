@@ -49,6 +49,7 @@ get_node_app() {
         echo "Enter the name of the github repo you want to clone (e.g. 'MyUsername/my-node-app'):"
         read repo
     done
+    cd ~
     # Clone the repo
     git clone https://github.com/$repo
     # Create a variable for the directory name
@@ -71,9 +72,9 @@ main() {
     # install_NPM
     # install_Docker
     # install_Docker_Compose
-    run_Docker_Compose
-    # get_node_app
-    # run_node_app
+    # run_Docker_Compose
+    get_node_app
+    run_node_app
 }
 
 main
