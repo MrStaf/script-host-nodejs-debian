@@ -22,7 +22,7 @@ install_Docker() {
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     apt update 
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -Y
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
 }
 
 install_Docker_Compose() {
