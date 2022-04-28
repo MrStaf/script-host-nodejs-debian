@@ -63,8 +63,8 @@ run_node_app() {
 main() {
     # update_system
     # install_NPM
-    install_Docker
-    install_Docker_Compose
+    # install_Docker
+    # install_Docker_Compose
     run_Docker_Compose
     # get_node_app
     # run_node_app
