@@ -59,7 +59,7 @@ get_node_app() {
     done
     cd ~
     # Clone the repo
-    git clone https://github.com/$repo
+    git clone $repo
     # Create a variable for the directory name
     dir=$(echo $repo | cut -d'/' -f2)
     # Change to the directory
