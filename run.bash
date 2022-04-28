@@ -21,8 +21,8 @@ install_Docker() {
     echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    apt update
-    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+    apt update 
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -Y
 }
 
 install_Docker_Compose() {
@@ -33,7 +33,7 @@ install_Docker_Compose() {
 }
 
 run_Docker_Compose() {
-    docker-compose up -d
+    docker compose up -d
 }
 
 get_node_app() {
