@@ -37,7 +37,7 @@ run_Docker_Compose() {
     # Get ip V4 address from eth0
     IP_ADDRESS=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
     echo Nginx Proxy Manager is running
-    echo go to //$IP_ADDRESS:81 and change the password, you can ignore later.
+    echo go to http://$IP_ADDRESS:81 and change the password, you can ignore later.
     echo Email:    admin@example.com \n Password: changeme
 
 }
@@ -71,8 +71,11 @@ get_node_app() {
 run_node_app() {
     # build the app
     npm run build
-    # serve the app
-    npm run start
+    npm i pm2 -g
+    IP_ADDRESS=$(ip -4 addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+    echo Your website will soon be available at http://$IP_ADDRESS:3000
+    pm2 start npm -- start
+    pm2 log
 }
 
 main() {
