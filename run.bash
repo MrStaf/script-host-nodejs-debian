@@ -44,15 +44,18 @@ run_Docker_Compose() {
 
 get_node_app() {
     repo=""
+    flag=0
     # While repo does not contains a valid git repo
-    while [ -z "$repo" ]; do
+    while [ $flag == 0 ]; do
         echo "Enter the git repo url (e.g. 'MyUsername/my-node-app')"
         read repo
         # If repo is not a valid git repo
         git ls-remote "$repo" > /dev/null 2>&1
         if [ "$?" -ne 0 ]; then
             echo "[ERROR] Unable to read from '$repo'"
-            exit 1;
+        fi
+        else
+            flag=1
         fi
     done
     cd ~
