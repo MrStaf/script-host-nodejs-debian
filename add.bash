@@ -1,4 +1,5 @@
 #!/bin/bash
+repo_folder=$(cat repos-location.txt)
 
 get_node_app() {
     repo=""
