@@ -1,6 +1,6 @@
 # Script Host Nodejs Debian
 
-Is a bash script that install all the needed to save you time in hosting in productionn Nodejs web application
+Is a bash script that install all the needed to save you time in hosting in production Nodejs web application
 
 ## Requirements
 
@@ -28,7 +28,7 @@ bash install.bash
 
 ### NodeJS
 
-The script will install [NodeJs]("https://nodejs.org/en/") ver 16.0 LTS
+The script will install [NodeJs]("https://nodejs.org/en/") 16.0 LTS
 
 ### Nginx proxy manager
 
